@@ -10,7 +10,6 @@ A secure and fully open-source, Chromium-based web browser with support for exte
 
 For the latest builds, see [**Releases**](https://github.com/sang765/noname-browser/releases/latest). You can also update between GitHub and Google Play releases seamlessly.
 
-[<img height="48" alt="Get it on Google Play" src="https://jqssun.github.io/images/badges/google-play-store.svg">](https://play.google.com/store/apps/details?id=io.github.jqssun.helium)
 [<img height="48" alt="Get it on GitHub" src="https://jqssun.github.io/images/badges/github.svg">](https://github.com/sang765/noname-browser/releases/latest)
 
 <img alt="NoName Browser for Android" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" />
