@@ -4,6 +4,7 @@ chromium/
 depot_tools/
 extensions/dist/
 extensions/dist.zip
+extensions/bundled.json
 keys/
 
 *.aab
