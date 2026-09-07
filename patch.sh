@@ -162,4 +162,61 @@ if (content::WebContents::HasLiveWebContentsForBrowserContext(profile)) { return
 sed -i 's/|| mSupportedProfileType == SupportedProfileType.REGULAR) {/|| mSupportedProfileType == SupportedProfileType.REGULAR || mSupportedProfileType == SupportedProfileType.MIXED) {/' chrome/android/java/src/org/chromium/chrome/browser/ChromeTabbedActivity.java
 sed -i 's/|| mSupportedProfileType == SupportedProfileType.OFF_THE_RECORD) {/|| mSupportedProfileType == SupportedProfileType.OFF_THE_RECORD || mSupportedProfileType == SupportedProfileType.MIXED) {/' chrome/android/java/src/org/chromium/chrome/browser/ChromeTabbedActivity.java
 
+# ext: import from file
+# Add "Import from file" button to extensions toolbar developer mode
+sed -i '/<cr-button ?hidden="\${!this\.canLoadUnpacked_()}" id="loadUnpacked"/,/<\/cr-button>/ {
+  /<\/cr-button>/a\
+    <input type="file" id="importFileInput" accept=".zip,.crx" style="display:none">\
+    <cr-button id="importFromFile" @click="\${this.onImportFromFileClick_}">\
+      $i18n{toolbarImportFromFile}\
+    </cr-button>
+}' chrome/browser/resources/extensions/toolbar.html.ts
+
+# Add import handler method to toolbar.ts
+sed -i '/protected onLoadUnpackedClick_\(\) {/,/^  }/ {
+  /^  }/a\
+\
+  protected onImportFromFileClick_() {\
+    const input = this.$.importFileInput as HTMLInputElement;\
+    input.click();\
+  }\
+\
+  protected onImportFileSelected_(e: Event) {\
+    const input = e.target as HTMLInputElement;\
+    const file = input.files?.[0];\
+    if (!file) return;\
+    \
+    const reader = new FileReader();\
+    reader.onload = () => {\
+      const bytes = new Uint8Array(reader.result as ArrayBuffer);\
+      const blob = new Blob([bytes], {type: "application/octet-stream"});\
+      const url = URL.createObjectURL(blob);\
+      \
+      const a = document.createElement("a");\
+      a.href = url;\
+      a.download = file.name;\
+      a.click();\
+      \
+      setTimeout(() => URL.revokeObjectURL(url), 1000);\
+    };\
+    reader.readAsArrayBuffer(file);\
+    input.value = "";\
+  }
+}' chrome/browser/resources/extensions/toolbar.ts
+
+# Add file input event listener in firstUpdated or similar
+sed -i '/protected onDevModeToggleChange_/,/^  }/ {
+  /^  }/a\
+\
+  protected override firstUpdated() {\
+    const input = this.$.importFileInput;\
+    if (input) {\
+      input.addEventListener("change", this.onImportFileSelected_.bind(this));\
+    }\
+  }
+}' chrome/browser/resources/extensions/toolbar.ts
+
+# Add i18n string for Import from file
+sed -i '/<message name="toolbarLoadUnpacked" desc="Label for the button/i\    <message name="toolbarImportFromFile" desc="Label for the button that imports an extension from a zip or crx file">\n      Import from file\n    </message>' chrome/app/extensions_strings.grdp
+
 export PATCHED=1
