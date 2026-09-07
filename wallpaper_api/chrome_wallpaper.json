@@ -1,0 +1,66 @@
+[
+  {
+    "namespace": "wallpaper",
+    "description": "Use the <code>chrome.wallpaper</code> API to get wallpaper colors and listen for wallpaper changes.",
+    "types": [
+      {
+        "id": "WallpaperColors",
+        "type": "object",
+        "description": "Colors extracted from the device wallpaper.",
+        "properties": {
+          "primaryColor": {
+            "type": "integer",
+            "description": "Primary wallpaper color as ARGB integer."
+          },
+          "secondaryColor": {
+            "type": "integer",
+            "optional": true,
+            "description": "Secondary wallpaper color as ARGB integer (may be absent)."
+          },
+          "tertiaryColor": {
+            "type": "integer",
+            "optional": true,
+            "description": "Tertiary wallpaper color as ARGB integer (may be absent)."
+          },
+          "colorHints": {
+            "type": "integer",
+            "description": "Color hints bitmask. Bit 0 (0x1): supports dark text. Bit 1 (0x2): supports dark theme."
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "getColor",
+        "type": "function",
+        "description": "Gets the current wallpaper colors.",
+        "parameters": [],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "$ref": "WallpaperColors",
+              "name": "colors",
+              "optional": true,
+              "description": "The wallpaper colors, or null if unavailable."
+            }
+          ]
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": "onChanged",
+        "type": "function",
+        "description": "Fired when the wallpaper colors change.",
+        "parameters": [
+          {
+            "$ref": "WallpaperColors",
+            "name": "colors",
+            "description": "The new wallpaper colors."
+          }
+        ]
+      }
+    ]
+  }
+]

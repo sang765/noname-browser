@@ -1,0 +1,37 @@
+// Copyright 2024 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+module chromium.mojom;
+
+// Colors extracted from the device wallpaper.
+struct WallpaperColors {
+  // Primary wallpaper color as ARGB uint32.
+  uint32 primary_color;
+  
+  // Secondary wallpaper color (nullable, may be absent).
+  uint32? secondary_color;
+  
+  // Tertiary wallpaper color (nullable, may be absent).
+  uint32? tertiary_color;
+  
+  // Color hints bitmask:
+  // bit 0 (0x1): Supports dark text (wallpaper is bright)
+  // bit 1 (0x2): Supports dark theme (wallpaper is dark)
+  int32 color_hints;
+};
+
+// Observer for wallpaper color changes.
+interface WallpaperColorObserver {
+  // Called when wallpaper colors change.
+  OnWallpaperColorsChanged(WallpaperColors colors);
+};
+
+// Main interface for wallpaper color access.
+interface WallpaperManager {
+  // Get current wallpaper colors. Returns null if colors are unavailable.
+  GetWallpaperColors() => (WallpaperColors? colors);
+  
+  // Register for wallpaper color change notifications.
+  AddColorChangeObserver(pending_receiver<WallpaperColorObserver> observer);
+};

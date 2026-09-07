@@ -1,0 +1,27 @@
+// Copyright 2024 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+[
+  Exposed=Window,
+  SecureContext
+] interface NavigatorWallpaper : EventTarget {
+  // Returns the current wallpaper color palette, or null if unavailable.
+  [Promise] Promise<WallpaperColors?> getColor();
+};
+
+dictionary WallpaperColors {
+  // Primary wallpaper color as ARGB uint32.
+  unsigned long primaryColor;
+
+  // Secondary wallpaper color (nullable, may be absent).
+  unsigned long? secondaryColor;
+
+  // Tertiary wallpaper color (nullable, may be absent).
+  unsigned long? tertiaryColor;
+
+  // Color hints bitmask:
+  // bit 0 (0x1): Supports dark text (wallpaper is bright).
+  // bit 1 (0x2): Supports dark theme (wallpaper is dark).
+  long colorHints;
+};
