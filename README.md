@@ -98,4 +98,14 @@ To build these releases yourself via CI (e.g. GitHub Actions), fork this reposit
 
 ## Credits
 
-This project would not have been possible without the huge community contributions from [Vanadium](https://github.com/GrapheneOS/Vanadium), and without the privacy-focused, open-source approach shared by various other Chromium projects. All credit goes to the original authors and contributors. This project started around the same time as [Helium Browser for Linux](https://github.com/imputnet/helium-linux) but it is not affiliated with the desktop Helium project.
+This project is a fork of [**Titanium Browser for Android**](https://github.com/jqssun/android-titanium-browser) by [jqssun](https://github.com/jqssun), which itself is based on [Vanadium](https://github.com/GrapheneOS/Vanadium) by [GrapheneOS](https://github.com/GrapheneOS). All credit goes to the original authors and contributors.
+
+- **Vanadium** — the privacy-focused Chromium base by GrapheneOS
+- **Titanium Browser** — the fork that added extension support and additional features
+- **NoName Browser** — this project, continuing development with Material You color APIs and custom branding
+
+This project is not affiliated with [Helium Browser for Linux](https://github.com/imputnet/helium-linux).
+
+## License
+
+GPL-2.0 — see [LICENSE](LICENSE) for details.
