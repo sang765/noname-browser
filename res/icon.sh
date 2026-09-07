@@ -18,7 +18,7 @@ read dark mid light core <<EOF
 $(convert "$1" -alpha off -format "$(p $dk) $(p $md) $(p $lt) $(p 500 500)" info:)
 EOF
 
-sed -e "s/#1c1c31/#$dark/" -e "s/#50507a/#$mid/" -e "s/#9393bf/#$light/" \
-    -e "s/#23233b/#$core/" -e "s/scale(1)/scale($k)/" $mod "$tpl" \
+sed -e "s/#6750A4/#$dark/" -e "s/#9A82DB/#$mid/" -e "s/#D0BCFF/#$light/" \
+    -e "s/#EADDFF/#$core/" -e "s/scale(1)/scale($k)/" $mod "$tpl" \
   | rsvg-convert -w "$w" -h "$w" -o "$1" -
 echo "$1 (${w}px, dark=#$dark mid=#$mid light=#$light)"

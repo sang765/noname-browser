@@ -1,19 +1,19 @@
-# Titanium Browser for Android
+# NoName Browser for Android
 
-[![Stars](https://img.shields.io/github/stars/jqssun/android-titanium-browser?label=Stars&logo=GitHub)](https://github.com/jqssun/android-titanium-browser)
-[![GitHub](https://img.shields.io/github/downloads/jqssun/android-titanium-browser/total?label=GitHub&logo=GitHub)](https://github.com/jqssun/android-titanium-browser/releases)
-[![license](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://github.com/jqssun/android-titanium-browser/blob/main/LICENSE)
-[![build](https://img.shields.io/github/actions/workflow/status/jqssun/android-titanium-browser/build.yml)](https://github.com/jqssun/android-titanium-browser/actions/workflows/build.yml)
-[![release](https://img.shields.io/github/v/release/jqssun/android-titanium-browser)](https://github.com/jqssun/android-titanium-browser/releases)
+[![Stars](https://img.shields.io/github/stars/sang765/noname-browser?label=Stars&logo=GitHub)](https://github.com/sang765/noname-browser)
+[![GitHub](https://img.shields.io/github/downloads/sang765/noname-browser/total?label=GitHub&logo=GitHub)](https://github.com/sang765/noname-browser/releases)
+[![license](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://github.com/sang765/noname-browser/blob/main/LICENSE)
+[![build](https://img.shields.io/github/actions/workflow/status/sang765/noname-browser/build.yml)](https://github.com/sang765/noname-browser/actions/workflows/build.yml)
+[![release](https://img.shields.io/github/v/release/sang765/noname-browser)](https://github.com/sang765/noname-browser/releases)
 
-A secure and fully open-source, Chromium-based web browser with support for extensions, based on [Vanadium](https://github.com/GrapheneOS/Vanadium) by [GrapheneOS](https://github.com/GrapheneOS). This project was formerly known as [Helium Browser for Android](https://github.com/jqssun/android-helium-browser) but was later renamed to avoid branding confusion. To maintain a fast and native experience for everyone, advanced features are modularized into [**Titanium Extension for Android**](https://github.com/jqssun/android-titanium-extension).
+A secure and fully open-source, Chromium-based web browser with support for extensions, based on [Vanadium](https://github.com/GrapheneOS/Vanadium) by [GrapheneOS](https://github.com/GrapheneOS). To maintain a fast and native experience for everyone, advanced features are modularized into [**NoName Extension for Android**](https://github.com/sang765/noname-extension).
 
-For the latest builds, see [**Releases**](https://github.com/jqssun/android-titanium-browser/releases/latest). You can also update between GitHub and Google Play releases seamlessly.
+For the latest builds, see [**Releases**](https://github.com/sang765/noname-browser/releases/latest). You can also update between GitHub and Google Play releases seamlessly.
 
 [<img height="48" alt="Get it on Google Play" src="https://jqssun.github.io/images/badges/google-play-store.svg">](https://play.google.com/store/apps/details?id=io.github.jqssun.helium)
-[<img height="48" alt="Get it on GitHub" src="https://jqssun.github.io/images/badges/github.svg">](https://github.com/jqssun/android-titanium-browser/releases/latest)
+[<img height="48" alt="Get it on GitHub" src="https://jqssun.github.io/images/badges/github.svg">](https://github.com/sang765/noname-browser/releases/latest)
 
-<img alt="Titanium Browser for Android" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" />
+<img alt="NoName Browser for Android" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" />
 
 ## Usage
 
@@ -21,7 +21,7 @@ For the latest builds, see [**Releases**](https://github.com/jqssun/android-tita
 
 For Chrome extensions, navigate to [Chrome Web Store](https://chromewebstore.google.com/), enable **Desktop site** using the menu button <kbd>⋮</kbd> in the top right corner, and proceed as normal.
 
-For [Opera Add-ons](https://addons.opera.com/), [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/), or other marketplaces, targeted User Agent modifications may be required. See [**Titanium Extension for Android**](https://github.com/jqssun/android-titanium-extension) for instructions.
+For [Opera Add-ons](https://addons.opera.com/), [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/), or other marketplaces, targeted User Agent modifications may be required. See [**NoName Extension for Android**](https://github.com/sang765/noname-extension) for instructions.
 
 You can also load an unpacked extension manually by navigating to the **Manage extensions** page or [`chrome://extensions`](chrome://extensions). Enable **Developer mode**, select **Load unpacked**, and choose the folder containing the extension in the Storage Access Framework (SAF) picker. Manifest V2 (MV2) extensions are supported. It may take a moment for the extension to load.
 
@@ -29,7 +29,7 @@ You can also load an unpacked extension manually by navigating to the **Manage e
 
 To run an extension in Incognito (OTR) mode, go to **Manage extensions**, find the extension you want to use in Incognito mode, select **Details**, and turn on **Allow in Incognito**.
 
-For advanced features including external download manager support, enhanced dark mode, and additional privacy options, you can use [**Titanium Extension for Android**](https://github.com/jqssun/android-titanium-extension).
+For advanced features including external download manager support, enhanced dark mode, and additional privacy options, you can use [**NoName Extension for Android**](https://github.com/sang765/noname-extension).
 
 ### Debug URLs
 
@@ -42,7 +42,7 @@ The option is available by using the menu button <kbd>⋮</kbd> in the top right
 ## Implementation
 
 > [!WARNING]
-> [Titanium Browser for Android](#titanium-browser-for-android) only attempts to improve security and privacy where possible. For better protection on Android, you should instead use [GrapheneOS](https://grapheneos.org) with [Vanadium](https://vanadium.app), which additionally integrates patches into Android System WebView and provides significant kernel and memory management hardening on the OS level.
+> [NoName Browser for Android](#noname-browser-for-android) only attempts to improve security and privacy where possible. For better protection on Android, you should instead use [GrapheneOS](https://grapheneos.org) with [Vanadium](https://vanadium.app), which additionally integrates patches into Android System WebView and provides significant kernel and memory management hardening on the OS level.
 
 ```mermaid
 ---
@@ -60,7 +60,7 @@ flowchart TD
         n9["Generic Patches<small><br>patches/*.patch</small>"]
         n10["Subprojects Patches<small><br>subprojects_patches/**/*.patch</small>"]
   end
- subgraph s3["Titanium Browser for Android"]
+ subgraph s3["NoName Browser for Android"]
         n11["GN Build Configuration<small><br>args.gn</small>"]
         n12["Signed Release"]
   end
@@ -87,15 +87,15 @@ flowchart TD
 
 ## Building
 
-All releases are built using [Actions](https://github.com/jqssun/android-titanium-browser/actions). Current releases can also be attested using [GitHub CLI](https://github.com/cli/cli).
+All releases are built using [Actions](https://github.com/sang765/noname-browser/actions). Current releases can also be attested using [GitHub CLI](https://github.com/cli/cli).
 
 ```shell
-gh attestation verify *.apk -R jqssun/android-titanium-browser
+gh attestation verify *.apk -R sang765/noname-browser
 ```
 
 This repository provides the build script to compile on the latest Ubuntu, and may also work with other Linux distributions.
 
-To build these releases yourself via CI (e.g. GitHub Actions), fork this repository. Supply your `base64` encoded `keystore.jks` and `local.properties` (containing `keyAlias`, `keyPassword` and `storePassword`) to [**Repository secrets**](https://github.com/jqssun/android-titanium-browser/blob/main/.github/workflows/build.yml#L49-L50) under **Settings** > **Secrets and variables** > **Actions**. To generate a release, go to **Actions**, select **Build**, and select **Run workflow**. Under **Runner**, you can either use a GitHub-hosted runner by entering `ubuntu-latest`, or `self-hosted` for your own hardware.
+To build these releases yourself via CI (e.g. GitHub Actions), fork this repository. Supply your `base64` encoded `keystore.jks` and `local.properties` (containing `keyAlias`, `keyPassword` and `storePassword`) to [**Repository secrets**](https://github.com/sang765/noname-browser/blob/main/.github/workflows/build.yml#L49-L50) under **Settings** > **Secrets and variables** > **Actions**. To generate a release, go to **Actions**, select **Build**, and select **Run workflow**. Under **Runner**, you can either use a GitHub-hosted runner by entering `ubuntu-latest`, or `self-hosted` for your own hardware.
 
 ## Credits
 
