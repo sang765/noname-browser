@@ -33,6 +33,16 @@ gclient sync -D --no-history --nohooks
 gclient runhooks
 ./build/install-build-deps.sh --no-prompt
 
+# Fallback: download extension CRX if hook didn't create extensions/dist
+if [ ! -f "$SCRIPT_DIR/extensions/dist/noname.crx" ]; then
+  echo "extensions/dist not found, downloading CRX manually..."
+  mkdir -p "$SCRIPT_DIR/extensions/dist"
+  python3 "$SCRIPT_DIR/extensions/bundle.py" \
+    "$SCRIPT_DIR/extensions/dist" \
+    noname \
+    "https://github.com/sang765/noname-extension/releases/latest/download/noname.crx"
+fi
+
 source $SCRIPT_DIR/patch.sh
 cp $SCRIPT_DIR/args.gn out/Default/args.gn
 gn gen out/Default # gn args out/Default; echo 'treat_warnings_as_errors = false' >> out/Default/args.gn
