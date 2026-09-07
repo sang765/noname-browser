@@ -9,38 +9,3 @@ android_assets("extension_assets") {
     "extensions/bundled.json",
   ]
 }
-
-# NoName Extension - bundled for pre-build
-android_assets("noname_extension") {
-  disable_compression = true
-  sources = [
-    "dist/background.js",
-    "dist/common.js",
-    "dist/install.html",
-    "dist/install.js",
-    "dist/manifest.json",
-    "dist/marketplaces/edge-install.js",
-    "dist/marketplaces/edge.json",
-    "dist/marketplaces/opera.json",
-    "dist/options.html",
-    "dist/options.js",
-    "dist/popup.html",
-    "dist/popup.js",
-    "dist/send.html",
-    "dist/send.js",
-    "dist/style.css",
-    "dist/md3-tokens.css",
-    "dist/md3-components.css",
-    "dist/icon/icon16.png",
-    "dist/icon/icon48.png",
-    "dist/icon/icon128.png",
-  ]
-  
-  # Create a zip of the extension for CRX packing
-  renaming_sources += [
-    "dist.zip",
-  ]
-  renaming_destinations += [
-    "extensions/noname.zip",
-  ]
-}

@@ -3,6 +3,7 @@
 chromium/
 depot_tools/
 extensions/dist/
+extensions/dist.zip
 keys/
 
 *.aab
