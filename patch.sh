@@ -116,6 +116,9 @@ sed -i '/content::WebContents\* web_contents = show_params->GetParentWebContents
 sed -i 's|view_android->GetWindowAndroid();|show_params->GetParentWindow();|' chrome/browser/ui/android/extensions/extension_install_dialog_view_android.cc
 sed -i 's|"platforms": \["win", "mac"\]|"platforms": ["win", "mac", "desktop_android"]|' chrome/common/extensions/api/_manifest_features.json
 
+# websocket: lna
+sed -i 's/BASE_FEATURE(kLocalNetworkAccessChecksWebSockets, base::FEATURE_ENABLED_BY_DEFAULT/BASE_FEATURE(kLocalNetworkAccessChecksWebSockets, base::FEATURE_DISABLED_BY_DEFAULT/' services/network/public/cpp/features.cc
+
 # ext: dialog
 sed -i 's|.with(ModalDialogProperties.FILTER_TOUCH_FOR_SECURITY, true)|.with(ModalDialogProperties.FILTER_TOUCH_FOR_SECURITY, false)|' chrome/browser/ui/android/extensions/java/src/org/chromium/chrome/browser/ui/extensions/ExtensionInstallDialogBridge.java
 
